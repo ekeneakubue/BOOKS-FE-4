@@ -7,6 +7,8 @@ import Explore from './pages/explore/Explore';
 import MyNotes from './pages/myNotes/MyNotes';
 import Saved from './pages/saved/Saved';
 import Shared from './pages/shared/Shared';
+import Download from './pages/download/Download';
+import Upload from './pages/upload/Upload';
 import SearchResult from './pages/searchResult/SearchResult';
 import Settings from './pages/settings/Settings';
 import Home from './pages/home/Home';
@@ -28,6 +30,8 @@ function App() {
         <Route path = '/bookshelf' element = {<BookShelf />} />
         <Route path = '/explore' element = {<Explore />} />
         <Route path = '/mynotes' element = {<MyNotes />} />
+        <Route path = '/download' element = {<Download />} />
+        <Route path = '/upload' element = {<Upload />} />
         <Route path = '/saved' element = {<Saved />} />
         <Route path = '/shared' element = {<Shared />} />
         <Route path = '/searchresult' element = {<SearchResult />} />
