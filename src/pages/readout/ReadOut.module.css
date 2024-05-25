@@ -10,6 +10,7 @@
     --btn-hover-yellow: #FFC25E;
     --icon-hover-color: #8C5F16;
     --btn-border:#FFF9EF;
+    --line-color:#304144;
 }
 
 *{
@@ -18,9 +19,10 @@
     padding: 0;
 }
 
-/* body{
-    background-color: var(--BackgroundColor);
-} */
+ body{
+    font-family: "Inter", sans-serif;
+    width: 100%;
+} 
 
 .header{
     display: flex;
@@ -35,7 +37,7 @@
     display: flex;
     align-items: center;
     font-family: "Inter", sans-serif;
-    margin-left: 50px;
+    margin-left: 5px;
     
 }
 
@@ -48,10 +50,12 @@
     font-size: 2rem;
     font-weight: 700;
     line-height: 32px;
+    
 }
 
 .close{
     margin-left: 200px;
+
 }
 
 .close_icon{
@@ -59,19 +63,44 @@
     height: 40px;
 }
 
+.close_icon:hover{
+    cursor: pointer;
+}
+
 .divider{
     width:100%;
+    margin-top: 10px;
+    border: 1px solid var(--line-color);
+
+}
+
+.body{
+    display: flex;
 }
 
 .sidenav{
     background-color: var(--sideBarBackgroundColor);
     width:20%;
-    height:100vh;
+    height:100%;
+    padding-bottom: 100px;
+}
+
+.table{
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top:20px;
+    margin-bottom:30px ;
+    margin-left: 15px;
+    line-height: 24px;
 }
 
 .sidenav_link{
     list-style-type: none;
     padding-top:30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 28px;
 }
 
 .pages{
@@ -80,5 +109,43 @@
     font-weight: 600;
     line-height: 18px;
     margin-left:50px;
+    background-color: var(--BackgroundColor);
+    padding: 5px 10px 5px 10px;
+    gap: 10px;
+}
+.chapter_title{
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+li:hover{
+    background-color:var(--BackgroundColor);
+    cursor: pointer;
+}
+
+li:hover .pages{
     background-color: var(--sideBarBackgroundColor);
+}
+.content{
+    position: absolute;
+    left:30%;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
+    line-height: 28px;
+    width:60%;
+  
+}
+
+.content h2{
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: center;
+    margin-top:50px;
+}
+
+.content p{
+    margin-top: 30px;
 }
