@@ -105,8 +105,8 @@ export default function Login() {
                 </div>
             </Link>
 
-            <h2 className={styles.header}>Create an account</h2>
-            <p>Choose a preferred Signup method</p>
+            <h2 className={styles.header}>Login to your account</h2>
+            <p>Welcome back! Choose a preferred login method</p>
 
 
             <form action="POST" onSubmit={handleSubmit}>                
