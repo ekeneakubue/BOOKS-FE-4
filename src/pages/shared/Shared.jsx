@@ -22,7 +22,7 @@ export default function MyNotes() {
       
       <main>
       <TopNavbar />
-        <Link to = '/dashboard'>
+        <Link to = '/bookshelf'>
           <button className={styles.back}><IoArrowBackCircleOutline className={styles.back_btn} /> Back</button>
         </Link>
         <div className={styles.flex}>

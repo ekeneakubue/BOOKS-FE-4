@@ -1,6 +1,5 @@
-
-
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Saved.module.css'
 import SideNavbar from '../../components/sideNavbar/SideNavbar'
 import TopNavbar from '../../components/topNavbar/TopNavbar'
@@ -22,7 +21,9 @@ export default function MyNotes() {
       
       <main>
       <TopNavbar />
-        <button className={styles.back}><IoArrowBackCircleOutline className={styles.back_btn} /> Back</button>
+        <Link to = '/bookshelf'>
+          <button className={styles.back}><IoArrowBackCircleOutline className={styles.back_btn} /> Back</button>
+        </Link>
         <div className={styles.flex}>
           <div className={styles.left}>
         <h1>Saved</h1>

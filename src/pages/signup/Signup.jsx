@@ -107,149 +107,138 @@ export default function Signup() {
 
     return (
         <div className={styles.signup_body}>
-            <div className={styles.signup_container}>
-                <div className={styles.left_page}>
-                    <Link to='/'>
-                        <div className={styles.logo}>
-                            <img src='images/logo.jpg' alt='logo' />
-                            <h1 className={styles.logo_text}>BookWorm</h1>
+            <div className={styles.left_page}>
+                <Link to='/'>
+                    <div className={styles.logo}>
+                        <img src='images/full_logo.png' alt='logo' />
+                    </div>
+                </Link>
+
+                <div className={styles.account}>
+                    <h2 className={styles.header}>Create an account</h2>
+                    <p>Choose a preferred Signup method</p>
+
+                    <button className={styles.social_btn}> 
+                        <FcGoogle className={styles.google_icon} />
+                        Sign up with Google
+                    </button>
+
+                    <div className={styles.or}>
+                        <div>
+                            <hr />or<hr />    
+                        </div>    
+                    </div>
+
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles.input_container}>
+                            <PiUserSquareLight className={styles.input_icon} />
+                            <input 
+                                type='text'
+                                name='fullName'
+                                placeholder='Full name'
+                                onChange={handleChange}
+                                value={formData.fullName}
+                                className={styles.input_box}
+                            />
                         </div>
-                    </Link>
 
-                    <div className={styles.account}>
-                        <h2 className={styles.header}>Create an account</h2>
-                        <p>Choose a preferred Signup method</p>
-
-                        <button className={styles.social_btn}> 
-                            <FcGoogle className={styles.google_icon} />
-                            Sign up with Google
-                        </button>
-
-                        <div className={styles.line}>
-                            <hr /><p>or</p><hr />
+                        <p className={styles.error}>
+                            {errors.fullName}
+                        </p>
+                                         
+                        <div className={styles.input_container}>
+                            <MdOutlineEmail />
+                            <input 
+                                type='email'
+                                name='email'
+                                placeholder='Email'
+                                onChange={handleChange}
+                                value={formData.email}
+                                className={styles.input_box}
+                            />
                         </div>
 
-                        <form onSubmit={handleSubmit}>
-                            <div className={styles.input_container}>
-                                <PiUserSquareLight className={styles.input_icon} />
-                                <input 
-                                    type='text'
-                                    name='fullName'
-                                    placeholder='Full name'
-                                    onChange={handleChange}
-                                    value={formData.fullName}
-                                    className={styles.input_box}
-                                />
-                            </div>
+                        <p className={styles.error}>
+                            {errors.email}
+                        </p>
 
-                            <p className={styles.error}>
-                                {errors.fullName}
-                            </p>
-
-                            <div className={styles.input_container}>
-                                <MdOutlineEmail className={styles.input_icon} />
-                                <input 
-                                    type='email'
-                                    name='email'
-                                    placeholder='Email'
-                                    onChange={handleChange}
-                                    value={formData.email}
-                                    className={styles.input_box}
-                                />
-                            </div>
-
-                            <p className={styles.error}>
-                                {errors.email}
-                            </p>
-
-                            <div className={styles.input_container}>
-                                <MdOutlineLock className={styles.input_icon} />
-                                <input
-                                    type={showPassword ? 'text' : 'password'}
-                                    name='password'
-                                    placeholder='Password'
-                                    onChange={handleChange}
-                                    value={formData.password}
-                                    maxLength={8}
-                                    className={styles.input_box}
-                                />
-                                {
-                                    showPassword ?
-                                        <LuEye
-                                            className={styles.eye_icon}
-                                            onClick={() => setShowPassword(!showPassword)}
-                                        />
-                                    :
-                                        <FaRegEyeSlash 
-                                            className={styles.eye_icon} 
-                                            onClick={() => setShowPassword(!showPassword)} 
-                                        />
-                                }
-                            </div>
-
-                            <p className={styles.error}>{errors.password}</p>
-
-
-                            <div className={styles.input_container}>
-                                <MdOutlineLock className={styles.input_icon} />
-                                <input
-                                    name='confirmPassword'
-                                    type={showPassword ? 'text' : 'password'}
-                                    placeholder='Confirm Password'
-                                    onChange={handleChange}
-                                    value={formData.confirmPassword}
-                                    maxLength={8}
-                                    className={styles.input_box}
-                                />
-
-                                {
-                                    showPassword ?
+                        <div className={styles.input_container}>
+                            <MdOutlineLock className={styles.input_icon} />
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                name='password'
+                                placeholder='Password'
+                                onChange={handleChange}
+                                value={formData.password}
+                                maxLength={8}
+                                className={styles.input_box}
+                            />
+                            {
+                                showPassword ?
                                     <LuEye
                                         className={styles.eye_icon}
                                         onClick={() => setShowPassword(!showPassword)}
                                     />
-                                    :
+                                :
                                     <FaRegEyeSlash 
                                         className={styles.eye_icon} 
                                         onClick={() => setShowPassword(!showPassword)} 
                                     />
-                                }
-                            </div>
+                            }
+                        </div>
 
-                            <p className={styles.error}>{errors.confirmPassword}</p>
+                        <p className={styles.error}>{errors.password}</p>
 
-                            <div className={styles.remember}>
-                                <input type='checkbox'
-                                    id={id}
-                                    name='remember'
-                                    checked={formData.remember}
-                                    onChange={handleChange}
-                                    className={styles.checkbox} 
+
+                        <div className={styles.input_container}>
+                            <MdOutlineLock className={styles.input_icon} />
+                            <input
+                                name='confirmPassword'
+                                type={showPassword ? 'text' : 'password'}
+                                placeholder='Confirm Password'
+                                onChange={handleChange}
+                                value={formData.confirmPassword}
+                                maxLength={8}
+                                className={styles.input_box}
+                            />
+
+                            {
+                                showPassword ?
+                                <LuEye
+                                    className={styles.eye_icon}
+                                    onClick={() => setShowPassword(!showPassword)}
                                 />
-                                <label htmlFor={id}>
-                                    Remember me
-                                </label>
-                            </div>
+                                :
+                                <FaRegEyeSlash 
+                                    className={styles.eye_icon} 
+                                    onClick={() => setShowPassword(!showPassword)} 
+                                />
+                            }
+                        </div>
 
-                            <button type='submit' className={styles.signup}  onClick={handleOnClick}>Sign up</button>
+                        <p className={styles.error}>{errors.confirmPassword}</p>
+                        
+                        <button type='submit' className={styles.signup}  onClick={handleOnClick}>Sign up</button>
 
-                            <p className={styles.bottom_text}>Already have an account?   <Link to='../login' className={styles.login}>Login</Link></p>
-                            {successmessage && <p>{successmessage}</p>}
-                            {errormessage && <p>{errormessage} </p>}
-                        </form>
-                    </div>
-                </div>
-
-                <div className={styles.right_page}>
-                    <img src="images/signup-pic.png"className={styles.user} alt="woman-reading-a-book" />
-
-                    <p>Let's Get You Started</p>
-                    <p className={styles.open}>Open the pages to a world of free reads!</p>
-                    <img src= "images/Frame 34653.png" className={styles.circle}/>
-                  
+                        <p className={styles.bottom_text}>Already have an account?   <Link to='../login' className={styles.login}>Login</Link></p>
+                        {successmessage && <p>{successmessage}</p>}
+                        {errormessage && <p>{errormessage} </p>}
+                    </form>
                 </div>
             </div>
 
+            <div className={styles.signup_right}>
+                <img src="images/signup-pic.png" alt="woman-reading-a-book" />
+                    
+                <div>
+                    <div className={styles.title}>Let's Get You Started</div>
+                    <p>Open the pages to a world of free reads!</p>
+                    <div className={styles.page_circ}>
+                        <span className={`${styles.circ} ${styles.active}`}></span>
+                        <span className={styles.circ}></span>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

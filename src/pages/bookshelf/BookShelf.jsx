@@ -14,21 +14,21 @@ export default function BookShelf() {
         <div className={styles.bookshelf}>
           <div className={styles.bookshelf_menu}>
             
-            <div className={styles.menu_card}>
+            <Link to ='/download' className={styles.menu_card}>
               <h3>Downloads</h3>
               <div className={styles.menu_detail}>
                 <h3>0</h3>
                 <FiDownload />
-              </div>
-            </div>
+              </div>            
+            </Link>
 
-            <div className={styles.menu_card}>
+            <Link to ='/saved' className={styles.menu_card}>
               <h3>Saved</h3>
               <div className={styles.menu_detail}>
                 <h3>0</h3>
                 <FiDownload />
               </div>
-            </div>
+            </Link>
 
             <Link to ='/shared' className={styles.menu_card}>
               <div >
@@ -40,13 +40,13 @@ export default function BookShelf() {
               </div>
             </Link>
 
-            <div className={styles.menu_card}>
+            <Link to ='/upload' className={styles.menu_card}>
               <h3>Uploads</h3>
               <div className={styles.menu_detail}>
                 <h3>0</h3>
                 <FiDownload />
               </div>
-            </div>
+            </Link>
 
             <Link to = '/mynotes' className={styles.menu_card}>
               <div >

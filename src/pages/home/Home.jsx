@@ -87,10 +87,10 @@ export default function Home() {
         </div>  
         <WhyBookworm />
 
-        {/* 
+        
         <div id="contacts">
             <Footer />           
-        </div>  */}
+        </div> 
 
         
     </div>

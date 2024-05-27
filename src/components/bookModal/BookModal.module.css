@@ -54,6 +54,7 @@
     display: flex;
     gap: 1rem;
 }
+
 .modal_detail{
     width: 60%;
     line-height: 1rem;

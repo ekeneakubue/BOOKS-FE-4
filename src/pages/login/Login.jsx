@@ -1,4 +1,7 @@
 import React ,{ useId, useState} from 'react'
+import { MdOutlineLock, MdOutlineEmail } from "react-icons/md"
+import { LuEye } from "react-icons/lu"
+import { FaRegEyeSlash } from "react-icons/fa6"
 import styles from './Login.module.css';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -38,6 +41,8 @@ export default function Login() {
             }
         });
     }
+
+
     async function handleSubmit(event) {
         event.preventDefault()
 
@@ -45,9 +50,9 @@ export default function Login() {
 
         const regExp = /^[^\s@]+@[^\s@]+ [a-zA-Z0-9._]\.[^\s@]+$/;
 
-        // if (!formData.fullName.trim()) {
-        //     formValidation.fullName = "! Field should not be empty"
-        // }
+        if (!formData.fullName.trim()) {
+            formValidation.fullName = "! Field should not be empty"
+        }
 
         if (!formData.email.trim()) {
             formValidation.email = "! Field should not be empty"
@@ -69,10 +74,10 @@ export default function Login() {
 
         setErrors(formValidation)
 
-        // if (Object.keys(formValidation).length === 0) {
-        //     alert("Signed up successfully!")
-        // }
-        // console.log("Form submitted:", formData);
+        if (Object.keys(formValidation).length === 0) {
+            alert("Signed up successfully!")
+        }
+        console.log("Form submitted:", formData);
         
     }
 
@@ -86,7 +91,7 @@ export default function Login() {
             console.log('Sign Up Response:', response.data);
             setSuccessmessage(response.data.message)
             setErrormessage(response.data.message); 
-            // redirectToDashboard();
+            redirectToDashboard();
         } catch (error) {
             console.error('Sign Up Error:', error.response.data);
         }
@@ -96,49 +101,79 @@ export default function Login() {
         <div className={styles.login_left}>
             <Link to='/'>
                 <div className={styles.login_brand}>
-                    <img src="images/logo.jpg" alt="" />
-                    BookWorm
+                    <img src="images/full_logo.png" alt="" />
                 </div>
             </Link>
-            <form action="POST" onSubmit={handleSubmit}>
-                <div className={styles.login_form_title}>
-                    Login to Your Account
-                </div>
-                <p>
-                    welcome back! Chose your prefarred login method
-                </p>
-                <div className={styles.social_btn}>
-                    <button className={styles.google_btn}>
-                        <img src="images/g.png" alt="" />
-                        Google
-                    </button>                    
-                </div> 
+
+            <h2 className={styles.header}>Create an account</h2>
+            <p>Choose a preferred Signup method</p>
+
+
+            <form action="POST" onSubmit={handleSubmit}>                
+                <button className={styles.google_btn}>
+                    <img src="images/g.png" alt="" />
+                    Google
+                </button>                    
+                
                 <div className={styles.or}>
-                    <hr />or<hr />    
+                    <div>
+                        <hr />or<hr />    
+                    </div>    
                 </div>
-                <div className={styles.user_detail_field}>
-                    <div className={styles.email_box}>                        
-                        <input   
-                            type='email'
-                            name='email'
-                            placeholder='Email'
-                            onChange={handleChange}
-                            value={formData.email}                                    
-                        />
-                    </div>  
-                    <div className={styles.email_box}>
-                        <input 
-                            type={showPassword ? 'text' : 'password'}
-                            name='password'
-                            placeholder='Password'
-                            onChange={handleChange}
-                            value={formData.password}
-                            maxLength={8}
-                        />                                    
-                    </div>       
-                </div> 
+
+                <div className={styles.input_container}>
+                    <MdOutlineEmail/>
+                    <input 
+                        type='text'
+                        name='email'
+                        placeholder='Email'
+                        onChange={handleChange}
+                        value={formData.email}
+                        className={styles.input_box}
+                        required
+                    />
+                </div>
+                <div className={styles.input_container}>
+                    <MdOutlineLock/>
+                    <input 
+                        type={showPassword ? 'text' : 'password'}
+                        name='password'
+                        placeholder='Password'
+                        onChange={handleChange}
+                        value={formData.password}
+                        className={styles.input_box}
+                        maxLength={8}
+                        required
+                    />                    
+                    {
+                        showPassword ?
+                            <LuEye
+                                className={styles.eye_icon}
+                                onClick={() => setShowPassword(!showPassword)}
+                            />
+                        :
+                            <FaRegEyeSlash 
+                                className={styles.eye_icon} 
+                                onClick={() => setShowPassword(!showPassword)} 
+                            />
+                    }
+                </div>
+                
+
+
                 <div className={styles.pwd_details}>
-                    <div className={styles.left_detail}>Remember me</div>
+                    <div className={styles.remember}>
+                        <input type='checkbox'
+                            id={id}
+                            name='remember'
+                            checked={formData.remember}
+                            onChange={handleChange}
+                            className={styles.checkbox} 
+                        />
+                        <label htmlFor={id}>
+                            Remember me
+                        </label>
+                    </div>
                     <div className={styles.right_detail}>
                         <Link to = '/forgotpassword'>Forgot password</Link>    
                     </div>    
