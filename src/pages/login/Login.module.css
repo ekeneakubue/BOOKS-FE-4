@@ -154,6 +154,10 @@
     color: var(--textColor);  
     padding: 1rem;
 }
+.input:focus{
+    background-color: transparent;
+    border:5px solid var(--input-outline-color);
+}
 .email_box.icon{
     font-size: 30px;
     cursor: pointer;
