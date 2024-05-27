@@ -207,6 +207,7 @@ form .bottom_text{
     } 
     
     .signup_right{
+        display: none;
         width: 100%;
         padding: 4rem 0rem;
     }
